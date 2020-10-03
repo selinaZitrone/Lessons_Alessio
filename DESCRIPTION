@@ -8,6 +8,7 @@ Authors@R:
 Description: The package converts Alessio's .tex lesson files to html and copies them to the clipboard
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/selinaZitrone/Lessons_Alessio.git
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports: 
