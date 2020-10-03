@@ -1,0 +1,62 @@
+% This is the basic documentclass. You cannot delete it
+\documentclass{article}
+
+% Defines the encoding
+\usepackage[utf8]{inputenc}
+
+% This is for colors
+\usepackage[dvipsnames]{xcolor}
+
+% This is for using Hyperlinks. In the setup you can define which colors the links should have. If you delete the setup, links will just be black.
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% You need this if you want to include pics
+\usepackage{graphicx}
+
+% Define the geometry of your paper (optional)
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ left=30mm,
+ top=30mm,
+ right=30mm,
+ bottom=30mm
+}
+
+% Optional title Author etc.
+\title{Alessios Latex Lessons}
+\author{selina.baldauf }
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{This is a section}
+\subsection{This is a subsection}
+
+\subsubsection*{Bold, Italic, Color text}
+
+If you put the star behind the section tag, the section will not be numbered.
+
+\textbf{This is bold}. On Overleaf you can just ust Ctrl B and you have the right tag.
+\textit{This is italic}. On Overleaf you can just ust Ctrl I and you have the right tag.
+\textcolor{blue}{This is colored text from the xcolor package}
+
+\subsubsection*{Links}
+ 
+\href{https://ftp.agdsn.de/pub/mirrors/latex/dante/macros/latex/contrib/xcolor/xcolor.pdf}{This} is a link to a page telling you how to use colors with the xcolor package and what options you have. You can use colors by name, but if you want you can define your own colors with their hex values.
+ 
+\subsubsection*{Pictures}
+
+This is the easiest version. See \href{https://www.overleaf.com/learn/latex/Inserting_Images}{here} for what else you can do (Positioning, Captions, etc.). Or just ask me in the end :) \\
+
+\includegraphics[width=\textwidth]{images/peppaPig.jpg}
+
+\end{document}
