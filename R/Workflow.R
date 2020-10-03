@@ -9,11 +9,18 @@ source(here::here("R/CopyToClipboard.R"))
 
 Workflow <- function(infiles = list.files(here::here("Lessons"), pattern = ".tex"), inpath = here::here("Lessons"),
                      outfiles = "", outpath = here::here("HTML"), overwrite = TRUE){
+  
   # if outfiles not specified call them the same as infiles
   if(length(outfiles < 1)){
     outfiles <- gsub(".tex", ".html", infiles)
   }
   
+  # first remove old version and then copy a current version of the images folder to outpath
+  #otherwise the html files don't find the images
+  #shell(paste0("rm -r ", outpath, "/images"))
+  #shell(paste0("cp -r ", here::here("images"), " ", outpath, "/images"))
+  
+  # Do the actual work of rendering and copying to clipboard
   for(i in 1:length(infiles)){
     if(i > 1){
     # Wait for user input to move to the next file
