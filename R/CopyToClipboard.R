@@ -2,6 +2,6 @@
 # filepath (string): path where file to be copied to clipboard is stored
 
 CopyToClipboard <- function(file, filepath = here::here("HTML")){
+  # \todo: remove <html> and <body> tag and Doctype
   xml2::read_html(paste0(filepath, "/", file)) %>% clipr::write_clip()
-  clipr::write_clip(text)
 }
