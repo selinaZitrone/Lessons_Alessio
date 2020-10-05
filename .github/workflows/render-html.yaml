@@ -1,6 +1,7 @@
 on:
-  paths:
-    - Lessons/
+  push:
+    paths:
+      - Lessons/
     
 name: Render HTML
 
