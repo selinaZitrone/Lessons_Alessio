@@ -14,10 +14,20 @@ jobs:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - uses: r-lib/actions/setup-pandoc@v1
-    - name: Render one file
+    - name: Render changed latex files to html
       run: |
-        pandoc Lessons/itworks.tex -f latex -t html -o HTML/itworks.html
-        git status
+        # find out which files have changed since the last commit
+        changed_files=$(git diff --name-only HEAD~1)
+        
+        # loop through the changed files and if there is a tex file render it to html
+        for file in $changed_files
+        do
+          if [[ $file = *tex ]]; then
+            html_name=${file#*/}
+            html_name=${html_name/tex/html}
+            pandoc $file -f latex -t html -o HTML/$html_name
+          fi
+        done
     - name: Commit files
       run: |
         git status
