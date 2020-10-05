@@ -17,8 +17,10 @@ jobs:
     - name: Render one file
       run: |
         pandoc Lessons/itworks.tex -f latex -t html -o HTML/itworks.html
+        git status
     - name: Commit files
       run: |
+        git status
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "Add changes" -a
