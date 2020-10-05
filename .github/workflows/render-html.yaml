@@ -22,7 +22,7 @@ jobs:
         # loop through the changed files and if there is a tex file render it to html
         for file in $changed_files
         do
-          if [[ $file = *tex ]]; then
+          if [[ $file = *.tex ]]; then
             html_name=${file#*/}
             html_name=${html_name/tex/html}
             pandoc $file -f latex -t html -o HTML/$html_name
