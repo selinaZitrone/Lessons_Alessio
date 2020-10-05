@@ -15,7 +15,9 @@ jobs:
           fetch-depth: 0
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Render one file
-        run: pandoc Lessons/Lesson1.tex -o HTML/itworks.html -t html5
+        run: |
+          ls
+          pandoc Lessons/Lesson1.tex -f latex -t html -s -o HTML/itworks.html
       - name: Commit results
         run: |
           # commit rendered files to render_gh_pages
