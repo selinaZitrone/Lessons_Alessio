@@ -12,7 +12,6 @@ RenderHTML <- function(file, outname = "", filepath = here::here("Lessons"), out
   # Check if the output file already exists 
   if (file.exists(paste0(outputpath, "/", outname))){
     if(replace){
-      "HI"
       print(paste0("Removed existing old file ", outname, " in ", outputpath))
       file.remove(paste0(outputpath, "/", outname))
     } else{
