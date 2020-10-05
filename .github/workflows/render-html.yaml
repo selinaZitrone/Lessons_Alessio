@@ -1,0 +1,24 @@
+on:
+  paths:
+    - Lessons/
+    
+name: Render HTML
+
+jobs:
+  render:
+    name: Render HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Render one file
+        run: pandoc Lessons/Lesson1.tex -o HTML/itworks.html -t html5
+      - name: Commit results
+        run: |
+          # commit rendered files to render_gh_pages
+          git add HTML/itworks.html || echo "no files to add"
+          git commit -m "Re-build HTML"
+          # checkout gh-pages branch and delete old rendered files
+          git push origin main
